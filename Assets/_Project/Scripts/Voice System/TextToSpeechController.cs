@@ -8,7 +8,7 @@ using BrainCheck;
 public class TextToSpeechController : MonoBehaviour
 {
     #region Settings
-    private const int LANG_CODE = 1;
+    private const int LANG_CODE = 0;
     #endregion
 
     #region Components
@@ -48,6 +48,4 @@ public class TextToSpeechController : MonoBehaviour
 
         SpeechRecognitionBridge.textToSpeech(screiptToRead, LANG_CODE);
     }
-
-
 }

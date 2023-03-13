@@ -40,7 +40,7 @@ namespace GPT3DigitalHuman.ChatBot
             _thinking = true;
             if(!(data is string)) return;
 
-            _textToSpeachTrigger.Raise(this, "Sure, let me thing.");
+            _textToSpeachTrigger.Raise(this, "Sure, let me think.");
 
             string prompt = data as string;
 
@@ -52,7 +52,7 @@ namespace GPT3DigitalHuman.ChatBot
             }
             catch
             {
-                result = "ERROR:: Invalid AIP key or request.";
+                result = "I'm sorry, I cant access the Internet right now. Please try again later.";
             }
 
             _textToSpeachTrigger.Raise(this, result);
