@@ -7,6 +7,9 @@ using UnityEngine.Networking;
 
 public class AudioClipPlayer : MonoBehaviour
 {
+
+    [SerializeField] AudioSource _audioSource;
+
     private void Start()
     {
         TextSpeech.TextToSpeech.Instance.onDoneCallback += DoneCallback;
@@ -24,9 +27,8 @@ public class AudioClipPlayer : MonoBehaviour
         UnityWebRequest req = UnityWebRequestMultimedia.GetAudioClip("file:///" + filePath, AudioType.WAV);
         yield return req.SendWebRequest();
         AudioClip audioClip = DownloadHandlerAudioClip.GetContent(req);
-        AudioSource aus = GetComponent<AudioSource>();
-        aus.clip = audioClip;
-        aus.Play();
+        _audioSource.clip = audioClip;
+        _audioSource.Play();
     }
 }
     
