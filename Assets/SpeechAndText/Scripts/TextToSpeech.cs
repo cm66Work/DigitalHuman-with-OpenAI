@@ -65,13 +65,10 @@ namespace TextSpeech
         javaUnityClass.CallStatic("OpenTextToSpeed", _message);
 #endif
         }
-        public void StartSpeakFile(string _message, string fileName)
+        public void StartSpeakFile(string _message, string filePath)
         {
 #if UNITY_ANDROID
         AndroidJavaClass javaUnityClass = new AndroidJavaClass("com.starseed.speechtotext.Bridge");
-        string filePath = Path.Combine(Application.persistentDataPath, fileName);
-        if(!File.Exists(filePath))
-            Directory.CreateDirectory(filePath);
         javaUnityClass.CallStatic("OpenTextToFile", _message, filePath);
 #endif
         }

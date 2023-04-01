@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TextSpeech;
 using UnityEngine.Android;
+using System.IO;
 
 public class SampleSpeechToText : MonoBehaviour
 {
@@ -64,11 +65,16 @@ public class SampleSpeechToText : MonoBehaviour
         //inputText.textComponent.text = _data;
         inputText.text = _data;
 
-        string filePath = Application.persistentDataPath + "/VoiceOutput.wav";
-        if(!System.IO.File.Exists(filePath))
-            System.IO.File.Create(filePath);
+        string filePath = Path.Combine(Application.persistentDataPath,"VoiceRespoinces");
+        if(!Directory.Exists(filePath))
+            Directory.CreateDirectory(filePath);
+        filePath = Path.Combine(filePath, "VoiceOutput.wav");
 
-        TextToSpeech.Instance.StartSpeakFile(_data, "VoiceOutput.wav");
+        if(!File.Exists(filePath))
+            File.Create(filePath);
+
+
+        TextToSpeech.Instance.StartSpeakFile(_data, filePath);
 #if UNITY_IOS
         loading.SetActive(false);
 #endif

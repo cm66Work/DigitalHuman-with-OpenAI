@@ -80,3 +80,6 @@ artifacts/
 ThirdParty/
 ThirdParty.meta
 --Version/
+Assets/_Project/Scripts/ChatBotGPT3/API.meta
+Assets/_Project/Scripts/ChatBotGPT3/API/API.txt
+Assets/_Project/Scripts/ChatBotGPT3/API/API.txt.meta

@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class SpeechButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    public SampleSpeechToText sample;
+    public SpeechToTextController sample;
     public GameObject effect;
     public float speedEffect = 1;
     public float scaleEffect = 1.2f;
